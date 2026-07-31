@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love.exe</title>
+    <style>
+        /* Retro Pixel Theme */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            /* Background image settings */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('photo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .window {
+            width: 360px;
+            background-color: rgba(255, 255, 255, 0.92); /* Subtle transparency */
+            backdrop-filter: blur(4px);
+            border: 4px solid #000;
+            box-shadow: 6px 6px 0px #000;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        .title-bar {
+            background-color: #ff6f61;
+            color: white;
+            padding: 8px;
+            font-size: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #000;
+        }
+
+        .content {
+            padding: 20px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: #ff4081;
+            color: white;
+            border: 3px solid #000;
+            padding: 10px 15px;
+            margin: 8px 0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            cursor: pointer;
+            width: 80%;
+            box-shadow: 3px 3px 0px #000;
+        }
+
+        .btn:active {
+            box-shadow: 0px 0px 0px #000;
+            transform: translate(3px, 3px);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .text-box {
+            font-size: 10px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window">
+        <div class="title-bar">
+            <span id="window-title">❤️ Hello.exe</span>
+            <span>[X]</span>
+        </div>
+
+        <!-- SCREEN 1: Welcome -->
+        <div id="screen1" class="content">
+            <div class="icon">👾</div>
+            <div class="text-box">Hey Mani ammeeee... I made something just for you.<br><br>Continue?</div>
+            <button class="btn" onclick="showScreen('screen2', 'Question.exe')">YES</button>
+            <button class="btn" onclick="moveButton(this)" style="position: relative;">NO</button>
+        </div>
+
+        <!-- SCREEN 2: Question -->
+        <div id="screen2" class="content hidden">
+            <div class="icon">☕</div>
+            <div class="text-box">Do you know how amazing you are?</div>
+            <button class="btn" onclick="showScreen('screen-of-course', 'Response.exe')">OF COURSE</button>
+            <button class="btn" onclick="showScreen('screen-maybe', 'Response.exe')">MAYBE</button>
+            <button class="btn" onclick="showScreen('screen-not-really', 'Response.exe')">NOT REALLY</button>
+        </div>
+
+        <!-- SUB-SCREEN: Of Course -->
+        <div id="screen-of-course" class="content hidden">
+            <div class="icon">✨🥰</div>
+            <div class="text-box">Good girl! ❤️</div>
+            <button class="btn" onclick="showScreen('screen3', 'Inventory.exe')">NEXT</button>
+        </div>
+
+        <!-- SUB-SCREEN: Maybe -->
+        <div id="screen-maybe" class="content hidden">
+            <div class="icon">🤔</div>
+            <div class="text-box">Why maybe? 🥺</div>
+            <button class="btn" onclick="showScreen('screen3', 'Inventory.exe')">NEXT</button>
+        </div>
+
+        <!-- SUB-SCREEN: Not Really -->
+        <div id="screen-not-really" class="content hidden">
+            <div class="icon">😉</div>
+            <div class="text-box">I will show you! ✨</div>
+            <button class="btn" onclick="showScreen('screen3', 'Inventory.exe')">NEXT</button>
+        </div>
+
+        <!-- SCREEN 3: Inventory -->
+        <div id="screen3" class="content hidden">
+            <div class="text-box"><b>Inventory</b><br>Select an item to open:</div>
+            <button class="btn" onclick="showScreen('screen-flowers', 'Flowers.exe')">FLOWERS 💐</button>
+            <button class="btn" onclick="showScreen('screen-chai', 'Chai.exe')">CHAI ☕</button>
+            <button class="btn" onclick="showScreen('screen-letter', 'Letter.exe')">LETTER ✉️</button>
+        </div>
+
+        <!-- SUB-SCREEN: Flowers -->
+        <div id="screen-flowers" class="content hidden">
+            <div class="icon">🌸💐🌺</div>
+            <div class="text-box">These flowers are for you! 🌷✨</div>
+            <button class="btn" onclick="showScreen('screen3', 'Inventory.exe')">NEXT</button>
+        </div>
+
+        <!-- SUB-SCREEN: Chai -->
+        <div id="screen-chai" class="content hidden">
+            <div class="icon">☕🫖</div>
+            <div class="text-box">Are you ready for a chai date? ☕❤️</div>
+            <button class="btn" onclick="showScreen('screen3', 'Inventory.exe')">NEXT</button>
+        </div>
+
+        <!-- SUB-SCREEN: Letter -->
+        <div id="screen-letter" class="content hidden">
+            <div class="text-box" style="text-align: left;">
+                To the most amazing girlfriend,<br><br>
+                I wanted to make this tiny game to remind you how much you mean to me.<br><br>
+                I love you endlessly!
+            </div>
+            <button class="btn" onclick="showScreen('screen-reward', 'Reward.exe')">FINISH</button>
+        </div>
+
+        <!-- SCREEN 5: End / Reward -->
+        <div id="screen-reward" class="content hidden">
+            <div class="icon">🎉</div>
+            <div class="text-box">
+                <b>Congratulations!</b><br><br>
+                You completed Love.exe<br><br>
+                Reward: ∞ Love Points
+            </div>
+            <button class="btn" onclick="location.reload()">REPLAY</button>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(screenId, titleText) {
+            // Hide all content screens
+            const screens = document.querySelectorAll('.content');
+            screens.forEach(s => s.classList.add('hidden'));
+
+            // Show selected screen
+            document.getElementById(screenId).classList.remove('hidden');
+
+            // Update title bar text
+            document.getElementById('window-title').innerText = "❤️ " + titleText;
+        }
+
+        // Playful feature: move the 'NO' button when hovered/clicked
+        function moveButton(btn) {
+            btn.style.left = (Math.random() * 100 - 50) + "px";
+            btn.style.top = (Math.random() * 100 - 50) + "px";
+        }
+    </script>
+</body>
+</html>
