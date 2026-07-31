@@ -102,7 +102,7 @@
         <!-- SCREEN 1: Welcome -->
         <div id="screen1" class="content">
             <div class="icon">👾</div>
-            <div class="text-box">Hey Mani ammeeee... I made something just for you.<br><br>Continue?</div>
+            <div class="text-box">Hey Mani Ammeee... I made something just for you.<br><br>Continue?</div>
             <button class="btn" onclick="showScreen('screen2', 'Question.exe')">YES</button>
             <button class="btn" onclick="moveButton(this)" style="position: relative;">NO</button>
         </div>
@@ -166,7 +166,17 @@
                 I wanted to make this tiny game to remind you how much you mean to me.<br><br>
                 I love you endlessly!
             </div>
-            <button class="btn" onclick="showScreen('screen-reward', 'Reward.exe')">FINISH</button>
+            <button class="btn" onclick="showScreen('screen-gday', 'GirlfriendsDay.exe')">NEXT</button>
+        </div>
+
+        <!-- SUB-SCREEN: Happy Girlfriend's Day -->
+        <div id="screen-gday" class="content hidden">
+            <div class="icon">💖✨🌹</div>
+            <div class="text-box">
+                <b>Happy Girlfriend's Day!</b><br><br>
+                Thank you for being the best part of my life. ❤️
+            </div>
+            <button class="btn" onclick="showScreen('screen-reward', 'Reward.exe')">CLAIM REWARD</button>
         </div>
 
         <!-- SCREEN 5: End / Reward -->
